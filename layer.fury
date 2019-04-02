@@ -1,8 +1,339 @@
-version	1
+version	3
 schemas	default	id	default
-		projects	
-		repos	
-		imports	
-		main	None
+		projects	cats	id	cats
+				modules	all	id	all
+						kind	Library
+						main	None
+						plugin	None
+						manifest	
+						compiler	projectId	java
+							moduleId	compiler
+							intransitive	false
+							hidden	false
+						after	cats/alleycats	projectId	cats
+								moduleId	alleycats
+								intransitive	false
+								hidden	false
+							cats/free	projectId	cats
+								moduleId	free
+								intransitive	false
+								hidden	false
+						params	
+						sources	
+						binaries	
+						resources	
+						bloopSpec	None
+					alleycats	id	alleycats
+						kind	Library
+						main	None
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	cats/core	projectId	cats
+								moduleId	core
+								intransitive	false
+								hidden	false
+							exporthook/core	projectId	exporthook
+								moduleId	core
+								intransitive	false
+								hidden	false
+							machinist/core	projectId	machinist
+								moduleId	core
+								intransitive	false
+								hidden	false
+						params	
+						sources	cats:alleycats-core/src/main/scala	cats:alleycats-core/src/main/scala
+							cats:alleycats-core/src/main/scala-2.12-	cats:alleycats-core/src/main/scala-2.12-
+						binaries	
+						resources	
+						bloopSpec	None
+					core	id	core
+						kind	Library
+						main	None
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	cats/kernel	projectId	cats
+								moduleId	kernel
+								intransitive	false
+								hidden	false
+							cats/macros	projectId	cats
+								moduleId	macros
+								intransitive	false
+								hidden	false
+							kindprojector/plugin	projectId	kindprojector
+								moduleId	plugin
+								intransitive	false
+								hidden	false
+							macroparadise/plugin	projectId	macroparadise
+								moduleId	plugin
+								intransitive	false
+								hidden	false
+						params	Xfuture	Xfuture
+							Ypartial-unification	Ypartial-unification
+							language:existentials	language:existentials
+							language:experimental.macros	language:experimental.macros
+							language:higherKinds	language:higherKinds
+							language:implicitConversions	language:implicitConversions
+						sources	cats:core/src/main/scala	cats:core/src/main/scala
+							cats:core/src/main/scala-2.12-	cats:core/src/main/scala-2.12-
+							shared:cats/cats	shared:cats/cats
+						binaries	
+						resources	
+						bloopSpec	None
+					free	id	free
+						kind	Library
+						main	None
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	cats/core	projectId	cats
+								moduleId	core
+								intransitive	false
+								hidden	false
+						params	Ypartial-unification	Ypartial-unification
+						sources	cats:free/src/main	cats:free/src/main
+						binaries	
+						resources	
+						bloopSpec	None
+					gen	id	gen
+						kind	Application
+						main	Some	Boilerplate
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	
+						params	
+						sources	src/gen	src/gen
+						binaries	
+						resources	
+						bloopSpec	None
+					kernel	id	kernel
+						kind	Library
+						main	None
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	cats/gen	projectId	cats
+								moduleId	gen
+								intransitive	false
+								hidden	false
+							cats/kernel-gen	projectId	cats
+								moduleId	kernel-gen
+								intransitive	false
+								hidden	false
+							simulacrum/core	projectId	simulacrum
+								moduleId	core
+								intransitive	false
+								hidden	false
+						params	
+						sources	cats:kernel/src/main/scala	cats:kernel/src/main/scala
+							cats:kernel/src/main/scala-2.12-	cats:kernel/src/main/scala-2.12-
+							shared:cats/kernel	shared:cats/kernel
+						binaries	
+						resources	
+						bloopSpec	None
+					kernel-gen	id	kernel-gen
+						kind	Application
+						main	Some	KernelBoiler
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	
+						params	
+						sources	src/kernelgen	src/kernelgen
+						binaries	
+						resources	
+						bloopSpec	None
+					macros	id	macros
+						kind	Library
+						main	None
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	machinist/core	projectId	machinist
+								moduleId	core
+								intransitive	false
+								hidden	false
+							macroparadise/plugin	projectId	macroparadise
+								moduleId	plugin
+								intransitive	false
+								hidden	false
+							simulacrum/core	projectId	simulacrum
+								moduleId	core
+								intransitive	false
+								hidden	false
+						params	
+						sources	cats:macros/src/main/scala	cats:macros/src/main/scala
+						binaries	
+						resources	
+						bloopSpec	None
+					root	id	root
+						kind	Library
+						main	None
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	cats/alleycats	projectId	cats
+								moduleId	alleycats
+								intransitive	false
+								hidden	false
+							cats/free	projectId	cats
+								moduleId	free
+								intransitive	false
+								hidden	false
+						params	
+						sources	
+						binaries	
+						resources	
+						bloopSpec	None
+				main	Some	core
+				license	unknown
+				description	
+				compiler	None
+			kindprojector	id	kindprojector
+				modules	plugin	id	plugin
+						kind	Plugin
+						main	Some	d_m.KindProjector
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	
+						params	
+						sources	kindprojector:src/main/scala	kindprojector:src/main/scala
+						binaries	
+						resources	
+						bloopSpec	None
+				main	Some	plugin
+				license	unknown
+				description	
+				compiler	None
+			machinist	id	machinist
+				modules	core	id	core
+						kind	Library
+						main	None
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	
+						params	
+						sources	machinist:src/main	machinist:src/main
+						binaries	
+						resources	
+						bloopSpec	None
+				main	Some	core
+				license	unknown
+				description	
+				compiler	None
+			macroparadise	id	macroparadise
+				modules	plugin	id	plugin
+						kind	Plugin
+						main	Some	org.scalamacros.paradise.Plugin
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	
+						params	
+						sources	macroparadise:plugin	macroparadise:plugin
+						binaries	
+						resources	
+						bloopSpec	None
+				main	Some	plugin
+				license	unknown
+				description	
+				compiler	None
+			simulacrum	id	simulacrum
+				modules	core	id	core
+						kind	Library
+						main	None
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	macrocompat/core	projectId	macrocompat
+								moduleId	core
+								intransitive	false
+								hidden	false
+							macroparadise/plugin	projectId	macroparadise
+								moduleId	plugin
+								intransitive	false
+								hidden	false
+						params	
+						sources	simulacrum:core/src/main/scala	simulacrum:core/src/main/scala
+						binaries	
+						resources	
+						bloopSpec	None
+				main	Some	core
+				license	unknown
+				description	
+				compiler	None
+		repos	cats	id	cats
+				repo	git@github.com:typelevel/cats.git
+				track	master
+				commit	eedb47c1af5ca9194a1ffcc361adb9a4f639dd0a
+				local	None
+			exporthook	id	exporthook
+				repo	git@github.com:propensive/.exporthook.git
+				track	master
+				commit	0ee3901e8c0940c3f2954c896ebe51c98ffc96f2
+				local	None
+			kindprojector	id	kindprojector
+				repo	git@github.com:non/kind-projector.git
+				track	master
+				commit	06b23bee3129269ba10e7cf8035f7c7ea2068a64
+				local	None
+			machinist	id	machinist
+				repo	git@github.com:typelevel/machinist.git
+				track	master
+				commit	22f69e1ac37e19a3bc3f4e5c9553b559dfc779d4
+				local	None
+			macroparadise	id	macroparadise
+				repo	git@github.com:scalamacros/paradise.git
+				track	2.12.6
+				commit	a6137aac8f6f3c9f67455fd2c003256772b2af2c
+				local	None
+			simulacrum	id	simulacrum
+				repo	git@github.com:mpilquist/simulacrum.git
+				track	master
+				commit	b06e386435c4290566b7be75f3edebab6db00139
+				local	None
+		imports	exporthook:scala-2.12	repo	exporthook
+				schema	scala-2.12
+		main	Some	cats
 main	default
 aliases	
