@@ -59,7 +59,11 @@ schemas	default	id	default
 							moduleId	compiler
 							intransitive	true
 							hidden	false
-						after	cats/kernel	projectId	cats
+						after	cats/gen	projectId	cats
+								moduleId	gen
+								intransitive	false
+								hidden	false
+							cats/kernel	projectId	cats
 								moduleId	kernel
 								intransitive	false
 								hidden	false
