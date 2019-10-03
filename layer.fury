@@ -23,6 +23,9 @@ schemas	default	id	default
 						binaries	
 						resources	
 						bloopSpec	None
+						environment	
+						properties	
+						policy	
 					alleycats	id	alleycats
 						kind	Library
 						main	None
@@ -50,6 +53,9 @@ schemas	default	id	default
 						binaries	
 						resources	
 						bloopSpec	None
+						environment	
+						properties	
+						policy	
 					core	id	core
 						kind	Library
 						main	None
@@ -91,6 +97,9 @@ schemas	default	id	default
 						binaries	
 						resources	
 						bloopSpec	None
+						environment	
+						properties	
+						policy	
 					free	id	free
 						kind	Library
 						main	None
@@ -109,6 +118,9 @@ schemas	default	id	default
 						binaries	
 						resources	
 						bloopSpec	None
+						environment	
+						properties	
+						policy	
 					gen	id	gen
 						kind	Application
 						main	Some	Boilerplate
@@ -124,6 +136,11 @@ schemas	default	id	default
 						binaries	
 						resources	
 						bloopSpec	None
+						environment	
+						properties	
+						policy	java.io.FilePermission /Users/j.kozlowski/IdeaProjects/fury-cats/.fury/build/- read,write	className	java.io.FilePermission
+								target	/Users/j.kozlowski/IdeaProjects/fury-cats/.fury/build/-
+								action	Some	read,write
 					kernel	id	kernel
 						kind	Library
 						main	None
@@ -148,6 +165,9 @@ schemas	default	id	default
 						binaries	
 						resources	
 						bloopSpec	None
+						environment	
+						properties	
+						policy	
 					kernel-gen	id	kernel-gen
 						kind	Application
 						main	Some	KernelBoiler
@@ -163,6 +183,20 @@ schemas	default	id	default
 						binaries	
 						resources	
 						bloopSpec	None
+						environment	
+						properties	
+						policy	java.io.FilePermission /Users/j.kozlowski/IdeaProjects/fury-cats/.fury/build read	className	java.io.FilePermission
+								target	/Users/j.kozlowski/IdeaProjects/fury-cats/.fury/build
+								action	Some	read
+							java.io.FilePermission /Users/j.kozlowski/IdeaProjects/fury-cats/.fury/build/- read	className	java.io.FilePermission
+								target	/Users/j.kozlowski/IdeaProjects/fury-cats/.fury/build/-
+								action	Some	read
+							java.io.FilePermission /Users/j.kozlowski/IdeaProjects/fury-cats/.fury/build/- read,write	className	java.io.FilePermission
+								target	/Users/j.kozlowski/IdeaProjects/fury-cats/.fury/build/-
+								action	Some	read,write
+							java.lang.RuntimePermission getenv.SHARED -	className	java.lang.RuntimePermission
+								target	getenv.SHARED
+								action	None
 					macros	id	macros
 						kind	Library
 						main	None
@@ -189,6 +223,9 @@ schemas	default	id	default
 						binaries	
 						resources	
 						bloopSpec	None
+						environment	
+						properties	
+						policy	
 					root	id	root
 						kind	Library
 						main	None
@@ -211,7 +248,10 @@ schemas	default	id	default
 						binaries	
 						resources	
 						bloopSpec	None
-				main	Some	core
+						environment	
+						properties	
+						policy	
+				main	Some	kernel
 				license	unknown
 				description	
 				compiler	None
@@ -227,10 +267,13 @@ schemas	default	id	default
 							hidden	false
 						after	
 						params	
-						sources	kindprojector:src/main/scala	kindprojector:src/main/scala
+						sources	kind-projector:src/main/scala	kind-projector:src/main/scala
 						binaries	
 						resources	
 						bloopSpec	None
+						environment	
+						properties	
+						policy	
 				main	Some	plugin
 				license	unknown
 				description	
@@ -251,6 +294,9 @@ schemas	default	id	default
 						binaries	
 						resources	
 						bloopSpec	None
+						environment	
+						properties	
+						policy	
 				main	Some	core
 				license	unknown
 				description	
@@ -267,10 +313,13 @@ schemas	default	id	default
 							hidden	false
 						after	
 						params	
-						sources	macroparadise:plugin	macroparadise:plugin
+						sources	scalamacros-paradise:plugin/src/main/scala	scalamacros-paradise:plugin/src/main/scala
 						binaries	
 						resources	
 						bloopSpec	None
+						environment	
+						properties	
+						policy	
 				main	Some	plugin
 				license	unknown
 				description	
@@ -298,6 +347,9 @@ schemas	default	id	default
 						binaries	
 						resources	
 						bloopSpec	None
+						environment	
+						properties	
+						policy	
 				main	Some	core
 				license	unknown
 				description	
@@ -312,20 +364,20 @@ schemas	default	id	default
 				track	master
 				commit	0ee3901e8c0940c3f2954c896ebe51c98ffc96f2
 				local	None
-			kindprojector	id	kindprojector
-				repo	git@github.com:non/kind-projector.git
-				track	master
-				commit	06b23bee3129269ba10e7cf8035f7c7ea2068a64
+			kind-projector	id	kind-projector
+				repo	gh:typelevel/kind-projector
+				track	v0.10.3
+				commit	b1e2e8375f755e4bbba61910a40ad640f7d0ff28
 				local	None
 			machinist	id	machinist
 				repo	git@github.com:typelevel/machinist.git
 				track	master
 				commit	22f69e1ac37e19a3bc3f4e5c9553b559dfc779d4
 				local	None
-			macroparadise	id	macroparadise
-				repo	git@github.com:scalamacros/paradise.git
-				track	2.12.6
-				commit	a6137aac8f6f3c9f67455fd2c003256772b2af2c
+			scalamacros-paradise	id	scalamacros-paradise
+				repo	gh:scalamacros/paradise
+				track	v2.1.0_2.12.8
+				commit	1d55f7b0902b35d55d6d1dfc94ae8680e622c4da
 				local	None
 			simulacrum	id	simulacrum
 				repo	git@github.com:mpilquist/simulacrum.git
@@ -334,6 +386,6 @@ schemas	default	id	default
 				local	None
 		imports	exporthook:scala-2.12	repo	exporthook
 				schema	scala-2.12
-		main	Some	cats
+		main	Some	macroparadise
 main	default
 aliases	
